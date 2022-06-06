@@ -1,11 +1,10 @@
-# scraping rent591 data with node.js
+# Scraping rent591 data with node.js
 
 ---
 
 下列 kafka 和 ksqldb 的操作使用 Docker.
 
-
-## Step 1 Start kafka service
+## Step 1: Start kafka service
 
 ### start all services
 
@@ -13,7 +12,7 @@
 docker-compose up -d
 ```
 
-## Step 2 Create topic, stream and table
+## Step 2: Create topic, stream and table
 
 ### create topic house_info
 
@@ -26,7 +25,7 @@ kafka-topics --bootstrap-server broker:29092 \
 
 ### create stream house_stream and table house_table
 
-先進入 ksqldb-cli，再執行 ksql。house_stream 和 house_table 分別設 houseId 為 key 和 primary key。
+先進入 ksqldb-cli，再執行 ksql query。house_stream 和 house_table 分別設 houseId 為 key 和 primary key。
 
 ```sh
 docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
@@ -65,8 +64,7 @@ create table house_table(houseId VARCHAR PRIMARY KEY,title VARCHAR,location VARC
 | **9**    | tags         | ARRAY    | 租屋標籤                       |
 | **10**   | gender       | INT      | (0:無性別限制，1:限男，2:限女) |
 
-
-## Step 3 Install and Run
+## Step 3: Install and Run
 
 ### npm install packages
 
@@ -91,7 +89,7 @@ TOPIC=house_info
 node rent.js
 ```
 
-hosueInfo object 的架構如下
+houseInfo object 的架構如下
 
 ```javascript
 {
@@ -118,11 +116,9 @@ hosueInfo object 的架構如下
 sh run.sh
 ```
 
-## Step 4 Check status
+## Step 4: Check status
 
 ### ksql query 檢查 table 和 stream 狀態
-
-以下列出幾種 query 不需依序執行，單個執行即可。詳細請參考[ksqlDB Documentation](https://docs.ksqldb.io/en/latest/)。
 
 | :exclamation: This is very important |
 | ------------------------------------ |
@@ -132,6 +128,8 @@ sh run.sh
 ```sh
 SET 'auto.offset.reset' = 'earliest';
 ```
+
+以下列出幾種 query 不需依序執行，單個執行即可。詳細請參考[ksqlDB Documentation](https://docs.ksqldb.io/en/latest/)。
 
 ```sh
 select * from house_stream emit changes;
