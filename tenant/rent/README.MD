@@ -74,12 +74,7 @@ npm i
 
 ### 建立一個.env 檔案
 
-<<<<<<< HEAD
-kafka 的 env 是 optional(雲端才會使用到)，請設定 TOPIC 為使用的 topic 名稱（這裡以 house_info 為例）。
-=======
 請設定 TOPIC 為使用的 topic 名稱（這裡以 house_info 為例），除 TOPIC 外其他的 environment variables 是 optional(雲端才會使用到)。
-
-> > > > > > > f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ```
 KAFKA_BOOTSTRAP_SERVER=<your server endpoint>
@@ -94,12 +89,7 @@ TOPIC=house_info
 node rent.js
 ```
 
-<<<<<<< HEAD
 houseInfo object 的架構如下
-=======
-houseInfo object 的架構如下。
-
-> > > > > > > f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ```javascript
 {
@@ -133,18 +123,13 @@ sh run.sh
 | :exclamation: This is very important |
 | ------------------------------------ |
 
-<<<<<<< HEAD
-注意！！如果要取得當下前塞入的紀錄要 set auto offset rest。[參考](https://myapollo.com.tw/zh-tw/kafka-auto-offset-reset/)
-=======
-注意！！如果要取得當下之前的資料要 set auto offset reset。[參考](https://myapollo.com.tw/zh-tw/kafka-auto-offset-reset/)
-
-> > > > > > > f03a0ef76e2b322b69b5d9276511674cba597e8f
+注意！！如果要取得當下之前的資料要 set auto offset reset [參考](https://myapollo.com.tw/zh-tw/kafka-auto-offset-reset/)。
 
 ```sh
 SET 'auto.offset.reset' = 'earliest';
 ```
 
-以下列出幾種 query 不需依序執行，單個執行即可。詳細請參考[ksqlDB Documentation](https://docs.ksqldb.io/en/latest/)。
+以下列出幾種 query 不需依序執行，單個執行即可。詳細請參考 [ksqlDB Documentation](https://docs.ksqldb.io/en/latest/)。
 
 ```sh
 select * from house_stream emit changes;
