@@ -36,6 +36,7 @@ create table house_table(houseId VARCHAR PRIMARY KEY,title VARCHAR,location VARC
 
 ### house_stream 欄位
 
+<<<<<<< HEAD
 | **項次** | **欄位名稱** | **型態** | **說明**                       |
 | -------- | ------------ | -------- | ------------------------------ |
 | **1**    | houseId      | VARCHAR  | key                            |
@@ -63,6 +64,35 @@ create table house_table(houseId VARCHAR PRIMARY KEY,title VARCHAR,location VARC
 | **8**    | roomPattern  | VARCHAR  | 租屋格局                       |
 | **9**    | tags         | ARRAY    | 租屋標籤                       |
 | **10**   | gender       | INT      | (0:無性別限制，1:限男，2:限女) |
+=======
+| **項次** | **欄位名稱** | **型態** | **說明**                          |
+| -------- | ------------ | -------- | --------------------------------- |
+| **1**    | houseId      | VARCHAR  | key                               |
+| **2**    | title        | VARCHAR  | 租屋案名                          |
+| **3**    | location     | VARCHAR  | 租屋地址                          |
+| **4**    | roomType     | VARCHAR  | 租屋類型                          |
+| **5**    | ping         | DOUBLE   | 坪數                              |
+| **6**    | floor        | VARCHAR  | 樓層                              |
+| **7**    | price        | INT      | 價格                              |
+| **8**    | roomPattern  | VARCHAR  | 租屋格局                          |
+| **9**    | tags         | ARRAY    | 租屋標籤                          |
+| **10**   | gender       | INT      | (0：無性別限制，1：限男，2：限女) |
+
+### house_table 欄位（和 house_stream 相同欄位，houseId 為 primary key）
+
+| **項次** | **欄位名稱** | **型態** | **說明**                          |
+| -------- | ------------ | -------- | --------------------------------- |
+| **1**    | houseId      | VARCHAR  | primary key                       |
+| **2**    | title        | VARCHAR  | 租屋案名                          |
+| **3**    | location     | VARCHAR  | 租屋地址                          |
+| **4**    | roomType     | VARCHAR  | 租屋類型                          |
+| **5**    | ping         | DOUBLE   | 坪數                              |
+| **6**    | floor        | VARCHAR  | 樓層                              |
+| **7**    | price        | INT      | 價格                              |
+| **8**    | roomPattern  | VARCHAR  | 租屋格局                          |
+| **9**    | tags         | ARRAY    | 租屋標籤                          |
+| **10**   | gender       | INT      | (0：無性別限制，1：限男，2：限女) |
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ## Step 3: Install and Run
 
@@ -74,7 +104,11 @@ npm i
 
 ### 建立一個.env 檔案
 
+<<<<<<< HEAD
 kafka 的 env 是 optional(雲端才會使用到)，請設定 TOPIC 為使用的 topic 名稱（這裡以 house_info 為例）。
+=======
+請設定 TOPIC 為使用的 topic 名稱（這裡以 house_info 為例），除 TOPIC 外其他的 environment variables 是 optional(雲端才會使用到)。
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ```
 KAFKA_BOOTSTRAP_SERVER=<your server endpoint>
@@ -89,7 +123,11 @@ TOPIC=house_info
 node rent.js
 ```
 
+<<<<<<< HEAD
 houseInfo object 的架構如下
+=======
+houseInfo object 的架構如下。
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ```javascript
 {
@@ -123,7 +161,11 @@ sh run.sh
 | :exclamation: This is very important |
 | ------------------------------------ |
 
+<<<<<<< HEAD
 注意！！如果要取得當下前塞入的紀錄要 set auto offset rest。[參考](https://myapollo.com.tw/zh-tw/kafka-auto-offset-reset/)
+=======
+注意！！如果要取得當下之前的資料要 set auto offset reset。[參考](https://myapollo.com.tw/zh-tw/kafka-auto-offset-reset/)
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
 
 ```sh
 SET 'auto.offset.reset' = 'earliest';

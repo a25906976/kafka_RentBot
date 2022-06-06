@@ -20,8 +20,13 @@ const sendKafka = async (houseInfoList) => {
     }
 };
 
+<<<<<<< HEAD
 var axios = require("axios");
 var config = {
+=======
+const axios = require("axios");
+let config = {
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
     method: "get",
     url: "https://rent.591.com.tw/",
     headers: {
@@ -40,7 +45,11 @@ const getRentHeaders = async () => {
     cookieHeaders = response.headers["set-cookie"];
     if (cookieHeaders[2].search("urlJumpIp=1") == -1) {
         let pos = cookieHeaders[2].search("urlJumpIp") + 10;
+<<<<<<< HEAD
         ip = cookieHeaders[2].substring(pos, pos + 1);
+=======
+        let ip = cookieHeaders[2].substring(pos, pos + 1);
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
         cookieHeaders[2] = cookieHeaders[2].replace(
             `urlJumpIp=${ip}`,
             "urlJumpIp=1"
@@ -163,7 +172,11 @@ const getRentList = async (gender) => {
         await getRentList("boy");
         await delay(getRandom(5));
         await getRentList("all_sex");
+<<<<<<< HEAD
         // diconnect kafka
+=======
+        // disconnect kafka
+>>>>>>> f03a0ef76e2b322b69b5d9276511674cba597e8f
         await producer.disconnect();
     } catch (e) {
         // Deal with the fact the chain failed
