@@ -4,13 +4,16 @@
 
 下列 kafka 和 ksqldb 的操作使用 Docker.
 
-## Step 1 statr kafka service
+---
+## Step 1 Start kafka service
 
 ### start all services
 
 ```sh
 docker-compose up -d
 ```
+---
+## Step 2 Create topic, stream and table
 
 ### create topic house_info
 
@@ -62,6 +65,9 @@ create table house_table(houseId VARCHAR PRIMARY KEY,title VARCHAR,location VARC
 | **9**    | tags         | ARRAY    | 租屋標籤                       |
 | **10**   | gender       | INT      | (0:無性別限制，1:限男，2:限女) |
 
+---
+## Step 3 Install and Run
+
 ### npm install packages
 
 ```sh
@@ -111,6 +117,8 @@ hosueInfo object 的架構如下
 ```sh
 sh run.sh
 ```
+---
+## Step 4 Check status
 
 ### ksql query 檢查 table 和 stream 狀態
 
