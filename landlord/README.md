@@ -7,6 +7,7 @@
 ## Install and Run
 ### step 1 取得 telegram token
 開啟 telegram 找 @BotFather 申請一個 Bot (請參考 https://hackmd.io/@truckski/HkgaMUc24?type=view )。
+
 然後至telegram-landlord.js 找到 "MY-TOKEN" 的地方換上剛剛取得的token
 
 ### step 2 run telegram-landlord.js 
