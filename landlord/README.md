@@ -18,7 +18,7 @@
 
 ### step 2 run telegram-landlord.js 
 ```sh
-cd ./kafka_RentBot/landlord
+cd ./landlord
 npm i
 node telegram-landlord.js
 ```
