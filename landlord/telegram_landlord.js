@@ -3,7 +3,7 @@ import { queryUser } from "./queryUser.js";
 import { queryHouseList, deleteHouse } from "./queryUser.js";
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = "5402488567:AAHs7lYyiuZQmpDw4Gjom5YL4dQeP5lJxuc";
+const token = "MY-TOKEN";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
