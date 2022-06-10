@@ -122,11 +122,11 @@ function houseIdInfoInput(chatId) {
         reply_markup: {
             inline_keyboard: [
                 [
-                    { text: "房屋A", callback_data: "1" },
-                    { text: "房屋B", callback_data: "2" },
-                    { text: "房屋C", callback_data: "3" },
-                    { text: "房屋D", callback_data: "4" },
-                    { text: "房屋E", callback_data: "5" },
+                    { text: "房屋1", callback_data: "1" },
+                    { text: "房屋2", callback_data: "2" },
+                    { text: "房屋3", callback_data: "3" },
+                    { text: "房屋4", callback_data: "4" },
+                    { text: "房屋5", callback_data: "5" },
                 ],
             ],
             resize_keyboard: true,
