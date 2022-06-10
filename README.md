@@ -1,3 +1,1 @@
 # kafka_RentBot
-
-## 
