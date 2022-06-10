@@ -19,6 +19,6 @@
 ### step 2 run telegram-landlord.js 
 ```sh
 cd ./landlord
-npm i
+npm install
 node telegram-landlord.js
 ```
