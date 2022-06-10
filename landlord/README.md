@@ -1,8 +1,11 @@
 # kafka_RentBot
 
-## Install and Run
+## 說明
 
-### step 1 取得telegram token
+使用 telegram bot 為政大房東媒合租屋案件並透過撈取 Kafka KSQL 內的資料為房東提供潛在的房客資訊
+
+## Install and Run
+### step 1 取得 telegram token
 開啟 telegram 找 @BotFather 申請一個 Bot。
 1. /newbot
 2. 輸入名稱
@@ -13,24 +16,9 @@
 
 然後至telegram-landlord.js 找到 "MY-TOKEN" 的地方換上剛剛取得的token
 
-### step 2
+### step 2 run telegram-landlord.js 
 ```sh
+cd ./kafka_RentBot/landlord
 npm i
-```
-
-```sh
 node telegram-landlord.js
-```
-
-userInfo object 的架構如下:
-```javascript
-{
-  houseId: '12417982',
-  houseAttr: {
-    sex: '男',
-    name: '鄭家宇',
-    price: 20000,
-    contact_information: 0966123777,
-  }
-}
 ```
