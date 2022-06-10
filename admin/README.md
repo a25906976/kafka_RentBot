@@ -1,10 +1,10 @@
 # kafka_RentBot
 
-'''sh
+```sh
 
 pip install python-telegram-bot
 
 pip install ksql
 
 pip install confluent-kafka
-'''
+```
