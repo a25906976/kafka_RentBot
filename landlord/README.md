@@ -22,3 +22,4 @@ cd ./landlord
 npm install
 node telegram-landlord.js
 ```
+### step 3 使用 telegram Bot
