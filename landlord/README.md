@@ -2,7 +2,7 @@
 
 ## 說明
 
-使用 telegram bot 為政大房東媒合租屋案件並透過撈取 Kafka KSQL 內的資料為房東提供潛在的房客資訊
+使用 telegram bot 為政大房東媒合租屋案件並透過撈取 Kafka KSQL 內的資料為房東提供潛在的房客資訊，並提供房東進行修改或刪除方屋資訊的功能。
 
 ## Install and Run
 ### step 1 取得 telegram token
