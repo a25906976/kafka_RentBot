@@ -6,14 +6,7 @@
 
 ## Install and Run
 ### step 1 取得 telegram token
-開啟 telegram 找 @BotFather 申請一個 Bot。
-1. /newbot
-2. 輸入名稱
-3. 輸入 username
-4. 記下 token
-
-<img width="614" alt="image" src="https://user-images.githubusercontent.com/71476388/173061395-3b33bbc7-6cab-4fb5-ba6c-a53b1eef41e0.png">
-
+開啟 telegram 找 @BotFather 申請一個 Bot (請參考 https://hackmd.io/@truckski/HkgaMUc24?type=view )。
 然後至telegram-landlord.js 找到 "MY-TOKEN" 的地方換上剛剛取得的token
 
 ### step 2 run telegram-landlord.js 
@@ -22,4 +15,3 @@ cd ./landlord
 npm install
 node telegram-landlord.js
 ```
-### step 3 使用 telegram Bot
