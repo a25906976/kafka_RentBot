@@ -68,6 +68,6 @@ CREATE TABLE QUERYABLE_HOUSE_TABLE AS SELECT * FROM HOUSE_TABLE;
 | **10**   | gender       | INT      | (0：無性別限制，1：限男，2：限女) |
 
 ## Congrats! Now you have done all preprocesses with kafka topics and ksql tables.
-## Please go to 'tenant/rent' folder to get more information about how to scraping rent591 data with node.js
+ Please go to 'tenant/rent' folder to get more information about how to scraping rent591 data with node.js
 
 
