@@ -2,69 +2,7 @@
 
 ---
 
-下列 kafka 和 ksqldb 的操作使用 Docker.
-
-## Step 1: Start kafka service
-
-### start all services
-
-```sh
-docker-compose up -d
-```
-
-## Step 2: Create topic, stream and table
-
-### create topic house_info
-
-```sh
-docker exec broker \
-kafka-topics --bootstrap-server broker:29092 \
-             --create \
-             --topic house_info
-```
-
-### create stream house_stream and table house_table
-
-先進入 ksqldb-cli，再執行 ksql query。house_stream 和 house_table 分別設 houseId 為 key 和 primary key。
-
-```sh
-docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
-create stream house_stream(houseId VARCHAR KEY,title VARCHAR,location VARCHAR,roomType VARCHAR,ping DOUBLE,floor VARCHAR,price INT,roomPattern VARCHAR,tags ARRAY<VARCHAR>,gender INT) WITH (KAFKA_TOPIC='house_info',VALUE_FORMAT='json');
-create table house_table(houseId VARCHAR PRIMARY KEY,title VARCHAR,location VARCHAR,roomType VARCHAR,ping DOUBLE,floor VARCHAR,price INT,roomPattern VARCHAR,tags ARRAY<VARCHAR>,gender INT) WITH (KAFKA_TOPIC='house_info',VALUE_FORMAT='json');
-
-```
-
-### house_stream 欄位
-
-| **項次** | **欄位名稱** | **型態** | **說明**                          |
-| -------- | ------------ | -------- | --------------------------------- |
-| **1**    | houseId      | VARCHAR  | key                               |
-| **2**    | title        | VARCHAR  | 租屋案名                          |
-| **3**    | location     | VARCHAR  | 租屋地址                          |
-| **4**    | roomType     | VARCHAR  | 租屋類型                          |
-| **5**    | ping         | DOUBLE   | 坪數                              |
-| **6**    | floor        | VARCHAR  | 樓層                              |
-| **7**    | price        | INT      | 價格                              |
-| **8**    | roomPattern  | VARCHAR  | 租屋格局                          |
-| **9**    | tags         | ARRAY    | 租屋標籤                          |
-| **10**   | gender       | INT      | (0：無性別限制，1：限男，2：限女) |
-
-### house_table 欄位（和 house_stream 相同欄位，houseId 為 primary key）
-
-| **項次** | **欄位名稱** | **型態** | **說明**                          |
-| -------- | ------------ | -------- | --------------------------------- |
-| **1**    | houseId      | VARCHAR  | primary key                       |
-| **2**    | title        | VARCHAR  | 租屋案名                          |
-| **3**    | location     | VARCHAR  | 租屋地址                          |
-| **4**    | roomType     | VARCHAR  | 租屋類型                          |
-| **5**    | ping         | DOUBLE   | 坪數                              |
-| **6**    | floor        | VARCHAR  | 樓層                              |
-| **7**    | price        | INT      | 價格                              |
-| **8**    | roomPattern  | VARCHAR  | 租屋格局                          |
-| **9**    | tags         | ARRAY    | 租屋標籤                          |
-| **10**   | gender       | INT      | (0：無性別限制，1：限男，2：限女) |
-
-## Step 3: Install and Run
+## Step 1: Install and Run
 
 ### npm install packages
 
@@ -116,7 +54,7 @@ houseInfo object 的架構如下
 sh run.sh
 ```
 
-## Step 4: Check status
+## Step 2: Check status
 
 ### ksql query 檢查 table 和 stream 狀態
 
