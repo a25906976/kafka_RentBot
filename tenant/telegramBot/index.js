@@ -14,7 +14,7 @@ const kafka = new Kafka({
   brokers: ["localhost:29092"],
 });
 const producer = kafka.producer();
-const topic = "user";
+const topic = "user_info";
 
 // 性別顯示對照
 let sexMap = {
