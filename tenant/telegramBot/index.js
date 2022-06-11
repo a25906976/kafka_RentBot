@@ -2,7 +2,7 @@ import TelegramBot from "node-telegram-bot-api/lib/telegram.js";
 import { queryHouse } from "./queryHouse.js";
 
 // replace the value below with the Telegram token you receive from @BotFather
-const token = "MY-TOKEN";
+const token = "5548795941:AAGDOqU17eTFwXNX10TaaS9SQFOWbqIC74I";
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
@@ -14,7 +14,7 @@ const kafka = new Kafka({
   brokers: ["localhost:29092"],
 });
 const producer = kafka.producer();
-const topic = "user";
+const topic = "user_info";
 
 // 性別顯示對照
 let sexMap = {
