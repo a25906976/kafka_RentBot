@@ -184,6 +184,7 @@ bot.on("callback_query", (callbackQuery) => {
 		else if (action === "delete"){
 			// do delete this houseInfo.
         	let text = `已刪除房屋${houseId.slice(-1)}`;
+			isEmpty[parseInt(houseId.slice(-1))] = 0;
         	bot.editMessageText(text, opts);
 			deleteHouse(houseId);
 		}

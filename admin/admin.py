@@ -5,6 +5,8 @@ from ksql import KSQLAPI
 
 flag = 0 #flag = 1 if delete data
 
+adminChatID = 0
+
 setting = {
         'bootstrap.servers':'localhost:29092',
         'group.id':'admin.py',
@@ -15,10 +17,11 @@ c.subscribe(['house_info'])
 
 client = KSQLAPI('http://localhost:8088')
 
-token = '5407630481:AAG97GSHB2l0n_0y1aCnrEkRtx32P9ML0Io'
-bot = Bot('5407630481:AAG97GSHB2l0n_0y1aCnrEkRtx32P9ML0Io')
+token = 'MY-TOKEN'
 
-updater = Updater('5407630481:AAG97GSHB2l0n_0y1aCnrEkRtx32P9ML0Io')
+bot = Bot(token)
+
+updater = Updater(token=token)
 
 dispatcher = updater.dispatcher
 
@@ -27,6 +30,7 @@ def start(update, context): # 新增指令/start
     message = update.message
     chat = message['chat']
     update.message.reply_text(text='HI  ' + str(chat['id']))
+    adminChatID = chat['id']
     print(message.text)
 
 def delete(update, context):
@@ -56,6 +60,11 @@ while True:
             continue
      #   print(msg.error().code())
         key = msg.key().decode('utf-8')
+        print("msg:\n", msg)
+        if msg.value() is None:
+            print("delete ...")
+            bot.send_message(600381337,'房屋: ' + key  + '\n' + '已被房東刪除')
+            continue
         data = msg.value().decode('utf-8')
         print('ID      :' + str(key))
         temp = data.replace('{', '')
@@ -64,22 +73,23 @@ while True:
         temp = temp.replace(']', '')
         temp = temp.replace(',', '\n')
         temp = temp.replace('\"', '')
-        temp = temp.replace('TITLE:',       '案名    :')
-        temp = temp.replace('LOCATION:',    '地址    :')
-        temp = temp.replace('ROOMTYPE:',    '房型    :')
-        temp = temp.replace('PING:',        '坪數    :')
-        temp = temp.replace('FLOOR:',       '樓層    :')
-        temp = temp.replace('PRICE:',       '價格    :')
-        temp = temp.replace('ROOMPATTERN:', '格局    :')
-        temp = temp.replace('TAGS:',        '標籤    :')
-        temp = temp.replace('GENDER:',      '性別    :')
+        temp = temp.replace('title:',       '案名    :')
+        temp = temp.replace('location:',    '地址    :')
+        temp = temp.replace('roomType:',    '房型    :')
+        temp = temp.replace('ping:',        '坪數    :')
+        temp = temp.replace('floor:',       '樓層    :')
+        temp = temp.replace('price:',       '價格    :')
+        temp = temp.replace('roomPattern:', '格局    :')
+        temp = temp.replace('tags:',        '標籤    :')
+        temp = temp.replace('gender:',      '性別    :')
         if(temp[-1] == '0'):
             temp = temp[:-1] + '無限制'
         elif(temp[-1] == '1'):
             temp = temp[:-1] + '限男'
         else:
             temp = temp[:-1] + '限女'
-        bot.send_message(1236400727,'ID        :' + key  + '\n' + temp)
+        print(temp)
+        bot.send_message(adminChatID,'ID        :' + key  + '\n' + temp)
     else:
         print('nothing')
         continue
